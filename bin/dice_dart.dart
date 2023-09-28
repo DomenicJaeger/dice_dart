@@ -7,8 +7,10 @@ void main() {
 //Ergebnis des vorherigen Wurfs, hier nur als Startwert mit einer 0 versehen
   int diceBefor = 0;
 
+  var keepGoing = true;
+
 //Schleife beginnt
-  while (true) {
+  while (keepGoing) {
 //Würfelwurf = Zufallszahl von 1 bis 6 (Random startet bei 0 also am Ende +1)
     int diceCast = random.nextInt(6) + 1;
 //Notiere das Würfelergebnis
@@ -17,7 +19,7 @@ void main() {
 //wenn der Würfelwurf eine 6 ist und der verherige Wurf auch, beende die Schleife
     if (diceCast == 6 && diceBefor == 6) {
       print('we will stop here');
-      break;
+      keepGoing = false;
     }
 //Ergebnis des vorherigen Wurfs wird gespeichert
     diceBefor = diceCast;
